@@ -24,11 +24,13 @@ Build a simplified microservice architecture that demonstrates an event-driven p
 │   ├── publisher/
 │   │   └── snsPublisher.ts         # Publishes to SNS
 │   ├── server/
-│   │   └── webhookReceiver.ts      # HTTP webhook for events
+│   │   ├── routes/
+│   │   │    └── user.ts
+│   │   └── index.ts                # HTTP webhook for events
 │   ├── services/
 │   │   └── db.ts                   # Postgres client and table schema
 │   └── types/
-│       └── events.ts              # TypeScript event interfaces
+│       └── events.ts               # TypeScript event interfaces
 │
 ├── docker/
 │   └── postgres.Dockerfile         # Optional: local Postgres setup
@@ -46,7 +48,7 @@ Build a simplified microservice architecture that demonstrates an event-driven p
 - [x] 🔧 **Setup Project**
       Initialize TypeScript project, install dependencies, and create base folder structure.
 
-- [ ] 🌐 **Create Webhook Receiver**  
+- [x] 🌐 **Create Webhook Receiver**  
        Build a Hapi server that accepts JSON events via POST, validates structure.
 
 - [ ] 📤 **Implement SNS Publisher**  
@@ -65,7 +67,7 @@ Build a simplified microservice architecture that demonstrates an event-driven p
       Create reusable TypeScript interfaces/types for `user_signed_up`, `order_placed`, etc.
 
 - [ ] 🧪 **Write Unit Tests**
-      Add Jest-based tests for publisher and consumer logic.
+      Add moccha-based tests for publisher and consumer logic.
 
 - [ ] 🧰 **Write AWS Infra Script**  
        Bash or Node.js script to create SNS topic, SQS queues, and subscriptions.
