@@ -1,17 +1,20 @@
 # Queuecumber
+
 🥒 Event-Driven Notification System with TypeScript, SQS, SNS, and Postgres
 
-
 Build a simplified microservice architecture that demonstrates an event-driven pipeline:
+
 1. Receives events via a webhook (HTTP).
 2. Publishes those events to an SNS topic.
 3. Routes events to multiple SQS queues subscribed to the topic.
 4. Consumes those events asynchronously.
 5. Persists them into a PostgreSQL database via Amazon RDS.
 6. Optionally logs or alerts based on event type.
+
 ---
 
 ## Project Structure
+
 ```
 │
 ├── src/
@@ -33,7 +36,6 @@ Build a simplified microservice architecture that demonstrates an event-driven p
 ├── scripts/
 │   └── setupAWSResources.sh        # Bootstrap SNS & SQS
 │
-├── .env                            # AWS credentials, DB URL
 ├── package.json
 ├── tsconfig.json
 └── README.md
@@ -41,37 +43,38 @@ Build a simplified microservice architecture that demonstrates an event-driven p
 
 ## ✅ To-Do List for Project Queuecumber 🥒
 
-- [ ] 🔧 **Setup Project** 
-  Initialize TypeScript project, install dependencies, and create base folder structure.
+- [x] 🔧 **Setup Project**
+      Initialize TypeScript project, install dependencies, and create base folder structure.
 
 - [ ] 🌐 **Create Webhook Receiver**  
-  Build an Express server that accepts JSON events via POST, validates structure.
+       Build a Hapi server that accepts JSON events via POST, validates structure.
 
 - [ ] 📤 **Implement SNS Publisher**  
-  Use `@aws-sdk/client-sns` to publish incoming events to the SNS topic.
+       Use `@aws-sdk/client-sns` to publish incoming events to the SNS topic.
 
-- [ ] 📬 **Build SQS Logger Consumer** 
-  Poll an SQS queue and log each event's contents to the console.
+- [ ] 📬 **Build SQS Logger Consumer**
+      Poll an SQS queue and log each event's contents to the console.
 
-- [ ] 🗃️ **Build SQS Postgres Consumer** 
-  Store relevant fields from incoming events into the local PostgreSQL DB.
+- [ ] 🗃️ **Build SQS Postgres Consumer**
+      Store relevant fields from incoming events into the local PostgreSQL DB.
 
 - [ ] 🛢️ **Setup Local PostgreSQL**  
-  Run a Postgres container via Docker and create necessary tables/schema.
+       Run a Postgres container via Docker and create necessary tables/schema.
 
-- [ ] 🧪 **Define Event Types** 
-  Create reusable TypeScript interfaces/types for `user_signed_up`, `order_placed`, etc.
+- [ ] 🧪 **Define Event Types**
+      Create reusable TypeScript interfaces/types for `user_signed_up`, `order_placed`, etc.
 
-- [ ] 🧪 **Write Unit Tests** 
-  Add Jest-based tests for publisher and consumer logic.
+- [ ] 🧪 **Write Unit Tests**
+      Add Jest-based tests for publisher and consumer logic.
 
-- [ ] 🧰 **Write AWS Infra Script**   
-  Bash or Node.js script to create SNS topic, SQS queues, and subscriptions.
+- [ ] 🧰 **Write AWS Infra Script**  
+       Bash or Node.js script to create SNS topic, SQS queues, and subscriptions.
 
 - [ ] 📘 **Finalize Documentation**  
-  Update README with setup instructions, architecture diagram (optional), and usage notes.
+       Update README with setup instructions, architecture diagram (optional), and usage notes.
 
 ## 🧾 Supported Events
+
 Each event is a JSON payload like:
 
 ```json
@@ -84,3 +87,4 @@ Each event is a JSON payload like:
     "timestamp": "2025-06-25T10:25:00Z"
   }
 }
+```
